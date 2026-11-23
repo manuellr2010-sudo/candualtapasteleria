@@ -1,0 +1,15 @@
+# Caddy obtiene y renueva solo los certificados HTTPS cuando el DNS apunta a este servidor.
+# Para probar antes del cambio de dominio, usa un subdominio provisional (p. ej. nueva.candualtapasteleria.com).
+
+www.candualtapasteleria.com {
+	encode zstd gzip
+	reverse_proxy web:3000
+	request_body {
+		max_size 130MB
+	}
+}
+
+# El dominio sin www redirige a www (o al revés, según se prefiera).
+candualtapasteleria.com {
+	redir https://www.candualtapasteleria.com{uri} permanent
+}

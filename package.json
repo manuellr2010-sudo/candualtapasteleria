@@ -1,0 +1,42 @@
+{
+  "name": "candu-alta-pasteleria",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web de pedidos y panel móvil de Candú Alta Pastelería (Las Cucharetas, Cortes de Baza, Granada)",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/",
+    "admin:password": "node scripts/admin-password.mjs",
+    "privacy:purge": "node scripts/purge-location.mjs"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0",
+    "@vercel/blob": "^2.9.0",
+    "gsap": "^3.15.1",
+    "leaflet": "^1.9.4",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "three": "^0.187.0",
+    "zod": "^4.6.7"
+  },
+  "overrides": {
+    "zod": "$zod"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.187.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "descripcion": "Datos legales que la web de Candú debe mostrar. Este archivo define QUÉ datos hacen falta, POR QUÉ (norma) y si son obligatorios. Los VALORES los rellena Juani en el panel: Ajustes › Datos legales (se guardan en la base de datos, no aquí). Revisado el 19/11/2026; no sustituye el asesoramiento de un profesional.",
+  "grupos": [
+    {
+      "id": "titular",
+      "titulo": "Quién está detrás de la web",
+      "campos": [
+        {
+          "id": "formaJuridica",
+          "etiqueta": "Forma jurídica",
+          "tipo": "opciones",
+          "opciones": ["Autónoma (persona física)", "Sociedad (S.L., S.Coop., etc.)"],
+          "obligatorio": true,
+          "publico": false,
+          "ley": "LSSI-CE art. 10",
+          "ayuda": "Si trabajas como autónoma, el titular eres tú con tu nombre y tu DNI. Si hay una sociedad, se ponen los datos de la sociedad y su inscripción en el Registro Mercantil."
+        },
+        {
+          "id": "titular",
+          "etiqueta": "Titular: nombre y apellidos (o razón social)",
+          "tipo": "texto",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "LSSI-CE art. 10.1.a",
+          "ayuda": "Tal como figura en Hacienda. «Candú Alta Pastelería» es el nombre comercial; además hace falta el nombre legal del titular."
+        },
+        {
+          "id": "nif",
+          "etiqueta": "NIF (DNI con letra si eres autónoma; CIF si es sociedad)",
+          "tipo": "nif",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "LSSI-CE art. 10.1.d",
+          "ayuda": "Sí: la ley obliga a publicar el NIF del titular. Para una autónoma, el NIF es el número de DNI con su letra. Solo se muestra en el aviso legal."
+        },
+        {
+          "id": "domicilio",
+          "etiqueta": "Domicilio (dirección postal completa del establecimiento)",
+          "tipo": "texto",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "LSSI-CE art. 10.1.a · TRLGDCU art. 97",
+          "ayuda": "Calle o paraje, número, código postal, municipio y provincia. Debe ser una dirección donde se pueda recibir correspondencia.",
+          "valorInicial": "Las Cucharetas, 18814 Cortes de Baza (Granada)"
+        },
+        {
+          "id": "email",
+          "etiqueta": "Correo electrónico de contacto",
+          "tipo": "email",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "LSSI-CE art. 10.1.b",
+          "ayuda": "Una dirección que se lea habitualmente.",
+          "valorInicial": "info@candualtapasteleria.com"
+        },
+        {
+          "id": "telefono",
+          "etiqueta": "Teléfono de contacto",
+          "tipo": "texto",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "TRLGDCU art. 97.1.c (venta a distancia)",
+          "ayuda": "Para que los clientes puedan contactar de forma rápida y directa.",
+          "valorInicial": "630 758 193"
+        },
+        {
+          "id": "registroMercantil",
+          "etiqueta": "Datos del Registro Mercantil (solo si es sociedad)",
+          "tipo": "texto",
+          "obligatorio": false,
+          "obligatorioSi": { "campo": "formaJuridica", "valor": "Sociedad (S.L., S.Coop., etc.)" },
+          "publico": true,
+          "ley": "LSSI-CE art. 10.1.c",
+          "ayuda": "Registro, tomo, folio, hoja e inscripción. Una autónoma no lo necesita."
+        }
+      ]
+    },
+    {
+      "id": "alimentos",
+      "titulo": "Venta de alimentos",
+      "campos": [
+        {
+          "id": "registroSanitario",
+          "etiqueta": "Nº de Registro Sanitario (RGSEAA) o de inscripción en el registro de Andalucía",
+          "tipo": "texto",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "Reglamento (CE) 852/2004 art. 6 · Real Decreto 191/2011",
+          "ayuda": "Toda empresa que elabora y vende alimentos debe estar inscrita en el registro sanitario (estatal RGSEAA o autonómico, según la actividad). Pon aquí el número que te dieron. Si no lo tienes, consúltalo con el Distrito Sanitario o el Ayuntamiento antes de vender."
+        },
+        {
+          "id": "alergenosConfirmados",
+          "etiqueta": "Reviso los alérgenos de cada producto antes de publicarlo",
+          "tipo": "casilla",
+          "obligatorio": true,
+          "publico": false,
+          "ley": "Reglamento (UE) 1169/2011 arts. 9 y 14",
+          "ayuda": "En la venta a distancia la información de alérgenos debe estar disponible ANTES de la compra. La web ya lo pide en cada ficha; esta casilla es tu confirmación de que lo revisas."
+        }
+      ]
+    },
+    {
+      "id": "consumo",
+      "titulo": "Compras y clientes",
+      "campos": [
+        {
+          "id": "preciosConIva",
+          "etiqueta": "Los precios que publico incluyen el IVA",
+          "tipo": "casilla",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "TRLGDCU arts. 20 y 97 · LSSI-CE art. 10.1.f",
+          "ayuda": "Los precios mostrados a consumidores deben ser finales, con impuestos incluidos, e indicar aparte los gastos de entrega."
+        },
+        {
+          "id": "hojasReclamaciones",
+          "etiqueta": "Tengo hojas de quejas y reclamaciones de la Junta de Andalucía (y estoy dada de alta en el sistema electrónico)",
+          "tipo": "casilla",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "Decreto 82/2022 de la Junta de Andalucía",
+          "ayuda": "Las empresas que venden a consumidores en Andalucía deben tenerlas a disposición e informar de ello. Se obtienen y gestionan en consumoresponde.es."
+        },
+        {
+          "id": "plazoEntrega",
+          "etiqueta": "Plazo y forma de entrega que ofreces (texto para las condiciones)",
+          "tipo": "texto",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "TRLGDCU art. 97.1.h",
+          "ayuda": "Ejemplo de formato: «En la fecha y franja elegidas al hacer el pedido, en las localidades indicadas». Escríbelo según cómo trabajes."
+        }
+      ]
+    },
+    {
+      "id": "datos",
+      "titulo": "Protección de datos",
+      "campos": [
+        {
+          "id": "conservacion",
+          "etiqueta": "Cuánto tiempo guardas los datos de los pedidos",
+          "tipo": "texto",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "RGPD art. 13.2.a",
+          "ayuda": "Lo habitual: mientras se gestiona el pedido y después el tiempo que exigen las obligaciones fiscales y contables. Confírmalo con tu gestoría."
+        },
+        {
+          "id": "proveedores",
+          "etiqueta": "Empresas que tratan datos por cuenta de Candú",
+          "tipo": "texto",
+          "obligatorio": true,
+          "publico": true,
+          "ley": "RGPD arts. 13.1.e y 28",
+          "ayuda": "Alojamiento, base de datos, pagos y mensajería que uses de verdad. Escribe solo los que estén contratados."
+        }
+      ]
+    }
+  ],
+  "notas": [
+    "Plataforma europea de resolución de litigios en línea (ODR): suprimida desde el 20/07/2025 (Reglamento (UE) 2024/3228). Ya no hay que enlazarla.",
+    "Confirmación del pedido (LSSI-CE art. 28): la web la muestra en pantalla al terminar el pedido, con el enlace de seguimiento.",
+    "Desistimiento: los productos perecederos o hechos por encargo pueden quedar excluidos (TRLGDCU art. 103); debe indicarse en las condiciones.",
+    "Cookies: la web solo usa almacenamiento técnico necesario, que no requiere consentimiento (LSSI-CE art. 22.2). Si se añade analítica o publicidad, habrá que pedirlo antes."
+  ]
+}

@@ -1,0 +1,12 @@
+# Nunca subir a Vercel: secretos locales, datos de pruebas ni notas privadas
+.env
+.env.*
+!.env.example
+data/
+*.local.txt
+*.local.md
+.claude/
+.mcp.json
+.next/
+node_modules/
+tsconfig.tsbuildinfo

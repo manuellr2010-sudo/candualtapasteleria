@@ -1,0 +1,33 @@
+# Despliegue en un servidor propio (VPS): la web + Caddy (HTTPS automático con Let's Encrypt).
+# 1) Copia .env.example a .env.production y rellénalo en el servidor (nunca en git).
+# 2) Apunta el DNS del dominio a la IP del servidor (ver docs/DOMINIO-Y-DESPLIEGUE.md).
+# 3) docker compose up -d --build
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      DATA_DIR: /app/data
+    volumes:
+      - candu-data:/app/data
+    expose:
+      - "3000"
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - web
+
+volumes:
+  candu-data:
+  caddy-data:
+  caddy-config:
